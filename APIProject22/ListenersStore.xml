@@ -1145,11 +1145,11 @@
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="NetService" entityPK="6490310387315692432" parentPK="0">
 	<fval name="name"><value>Service</value></fval>
 </entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="HTTP" entityPK="3352186429973592477" parentPK="6490310387315692432">
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="HTTP" entityPK="-7425121177199243153" parentPK="6490310387315692432">
 	<fval name="corsProfile"><value contentType="reference">-1</value></fval>
 	<fval name="name"><value>Default Services</value></fval>
 </entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="InetInterface" entityPK="6484689365731954460" parentPK="3352186429973592477">
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="InetInterface" entityPK="3970459595715210994" parentPK="-7425121177199243153">
 	<fval name="activetimeout"><value>60000</value></fval>
 	<fval name="address"><value>*</value></fval>
 	<fval name="auditConn"><value>false</value></fval>
@@ -1159,7 +1159,7 @@
 	<fval name="idletimeout"><value>60000</value></fval>
 	<fval name="inputEncodings"><value>.inherit</value></fval>
 	<fval name="maxRequestMemory"><value>27262976</value></fval>
-	<fval name="name"><value>Traffic HTTP Interface</value></fval>
+	<fval name="name"><value>Traffic HTTP Interface2</value></fval>
 	<fval name="opsSettingsUsage"><value>SYSTEM</value></fval>
 	<fval name="outputEncodings"><value>.inherit</value></fval>
 	<fval name="port"><value>${env.PORT.TRAFFIC}</value></fval>
@@ -1175,7 +1175,7 @@
 	<fval name="transparentProxy"><value>0</value></fval>
 	<fval name="wafProfile"><value contentType="reference">-1</value></fval>
 </entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="XMLFirewall" entityPK="6951620470982226115" parentPK="3352186429973592477">
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="XMLFirewall" entityPK="6665853682167200154" parentPK="-7425121177199243153">
 	<fval name="corsProfile"><value contentType="reference">-1</value></fval>
 	<fval name="corsUsage"><value>HTTP</value></fval>
 	<fval name="enableAccessLogging"><value>0</value></fval>
@@ -1187,31 +1187,31 @@
 	<fval name="logMask"><value>2</value></fval>
 	<fval name="pathMatching"><value>LONGEST</value></fval>
 	<fval name="payloadMask"><value>0</value></fval>
-	<fval name="trafficMonitoringEnabled"><value>true</value></fval>
+	<fval name="trafficMonitoringEnabled"><value>1</value></fval>
 	<fval name="uriprefix"><value>/test2</value></fval>
 </entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SoftCircuitReference" entityPK="-7865648860771439449" parentPK="6951620470982226115">
-	<fval name="circuitPK"><value>system.policy.request</value></fval>
-	<fval name="evaluate"><value>1</value></fval>
-	<fval name="name"><value>GLOBAL_POLICY_REQ</value></fval>
-	<fval name="priority"><value>0</value></fval>
-</entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SoftCircuitReference" entityPK="-6619227879122263475" parentPK="6951620470982226115">
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SoftCircuitReference" entityPK="-8619187793773935283" parentPK="6665853682167200154">
 	<fval name="circuitPK"><value>system.policy.response</value></fval>
-	<fval name="evaluate"><value>1</value></fval>
+	<fval name="evaluate"><value>0</value></fval>
 	<fval name="name"><value>GLOBAL_POLICY_RSP</value></fval>
 	<fval name="priority"><value>4</value></fval>
 </entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PortableCircuitReference" entityPK="-1883322123689688522" parentPK="6951620470982226115">
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PortableCircuitReference" entityPK="-4226770393972135024" parentPK="6665853682167200154">
 	<fval name="circuitPK"><value contentType="reference">-1</value></fval>
 	<fval name="evaluate"><value>true</value></fval>
 	<fval name="name"><value>CUSTOM_POLICY_RSP</value></fval>
 	<fval name="priority"><value>3</value></fval>
 </entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PortableCircuitReference" entityPK="6193181904805802679" parentPK="6951620470982226115">
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PortableCircuitReference" entityPK="2159003041068515686" parentPK="6665853682167200154">
 	<fval name="circuitPK"><value contentType="reference">-1</value></fval>
 	<fval name="evaluate"><value>true</value></fval>
 	<fval name="name"><value>CUSTOM_POLICY_REQ</value></fval>
 	<fval name="priority"><value>1</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SoftCircuitReference" entityPK="4872331861244508784" parentPK="6665853682167200154">
+	<fval name="circuitPK"><value>system.policy.request</value></fval>
+	<fval name="evaluate"><value>0</value></fval>
+	<fval name="name"><value>GLOBAL_POLICY_REQ</value></fval>
+	<fval name="priority"><value>0</value></fval>
 </entity>
 </entityStoreData>

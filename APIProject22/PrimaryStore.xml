@@ -5392,6 +5392,37 @@
 	<fval name="name"><value>Id-0001529531571877-ffffffffa199093d-1</value></fval>
 	<fval name="priority"><value>0</value></fval>
 </entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit" entityPK="-7358420130265944600" parentPK="0">
+	<fval name="category"><value contentType="reference">-7509447965632017883</value></fval>
+	<fval name="description"><value></value></fval>
+	<fval name="logMask"><value>3</value></fval>
+	<fval name="name"><value>healthcheck</value></fval>
+	<fval name="start"><value contentType="reference">4324676352261920151</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Reflector" entityPK="-5724240282295396637" parentPK="-7358420130265944600">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="httpResponseStatus"><value>200</value></fval>
+	<fval name="logFailure"><value>Failed to echo back the message</value></fval>
+	<fval name="logFatal"><value>Error occurred while echoing the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Successfully echoed back the message</value></fval>
+	<fval name="name"><value>Reflect Message</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter" entityPK="4324676352261920151" parentPK="-7358420130265944600">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="body"><value>&lt;status&gt;ok&lt;/status&gt;</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="logFailure"><value>Failed in setting the message</value></fval>
+	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in setting the message</value></fval>
+	<fval name="name"><value>Set Message</value></fval>
+	<fval name="outputContentType"><value>text/xml</value></fval>
+	<fval name="successNode"><value contentType="reference">-5724240282295396637</value></fval>
+</entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="EncryptionRecipients" entityPK="-6976197781656378320" parentPK="0">
 	<fval name="name"><value>Encryption Recipients</value></fval>
 </entity>
@@ -7638,6 +7669,37 @@
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CronExpressionGroup" entityPK="-3876472409716139590" parentPK="0">
 	<fval name="name"><value>Cron Expression Library</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit" entityPK="-3511243305035747613" parentPK="0">
+	<fval name="category"><value contentType="reference">-7509447965632017883</value></fval>
+	<fval name="description"><value></value></fval>
+	<fval name="logMask"><value>3</value></fval>
+	<fval name="name"><value>test2</value></fval>
+	<fval name="start"><value contentType="reference">8710406300442970367</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Reflector" entityPK="-6242351907222677083" parentPK="-3511243305035747613">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="httpResponseStatus"><value>200</value></fval>
+	<fval name="logFailure"><value>Failed to echo back the message</value></fval>
+	<fval name="logFatal"><value>Error occurred while echoing the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Successfully echoed back the message</value></fval>
+	<fval name="name"><value>Reflect Message</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter" entityPK="8710406300442970367" parentPK="-3511243305035747613">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="body"><value>{&quot;message&quot; : &quot;Test 2 1.0&quot;}</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="logFailure"><value>Failed in setting the message</value></fval>
+	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in setting the message</value></fval>
+	<fval name="name"><value>Set Message</value></fval>
+	<fval name="outputContentType"><value>text/plain</value></fval>
+	<fval name="successNode"><value contentType="reference">-6242351907222677083</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CommandGroup" entityPK="-2975002109068910586" parentPK="0">
 	<fval name="name"><value>Available Command Entities</value></fval>
@@ -13081,37 +13143,6 @@
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="XPathNamespace" entityPK="-1842120711031202728" parentPK="8724878710054498301">
 	<fval name="URI"><value>http://schemas.xmlsoap.org/soap/envelope/</value></fval>
 	<fval name="prefix"><value>soap</value></fval>
-</entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit" entityPK="4206246171567004993" parentPK="0">
-	<fval name="category"><value contentType="reference">-7509447965632017883</value></fval>
-	<fval name="description"><value></value></fval>
-	<fval name="logMask"><value>3</value></fval>
-	<fval name="name"><value>test2</value></fval>
-	<fval name="start"><value contentType="reference">-7727603225611590794</value></fval>
-</entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter" entityPK="-7727603225611590794" parentPK="4206246171567004993">
-	<fval name="abortProcessingOnLogError"><value>0</value></fval>
-	<fval name="body"><value>{&quot;message&quot; : &quot;Test 2 1.0&quot;}</value></fval>
-	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
-	<fval name="logFailure"><value>Failed in setting the message</value></fval>
-	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
-	<fval name="logMask"><value>2</value></fval>
-	<fval name="logMaskType"><value>SERVICE</value></fval>
-	<fval name="logSuccess"><value>Success in setting the message</value></fval>
-	<fval name="name"><value>Set Message</value></fval>
-	<fval name="outputContentType"><value>text/plain</value></fval>
-	<fval name="successNode"><value contentType="reference">4559882439234101058</value></fval>
-</entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Reflector" entityPK="4559882439234101058" parentPK="4206246171567004993">
-	<fval name="abortProcessingOnLogError"><value>0</value></fval>
-	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
-	<fval name="httpResponseStatus"><value>200</value></fval>
-	<fval name="logFailure"><value>Failed to echo back the message</value></fval>
-	<fval name="logFatal"><value>Error occurred while echoing the message. Error: ${circuit.exception}</value></fval>
-	<fval name="logMask"><value>2</value></fval>
-	<fval name="logMaskType"><value>SERVICE</value></fval>
-	<fval name="logSuccess"><value>Successfully echoed back the message</value></fval>
-	<fval name="name"><value>Reflect Message</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ParserFeatureGroup" entityPK="4822123479031166661" parentPK="0">
 	<fval name="name"><value>Parser Features Group</value></fval>
