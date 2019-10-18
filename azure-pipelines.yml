@@ -1,0 +1,35 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '*/master'
+    Contents: '**'
+    TargetFolder: '$(HOME_DIR)/sourcecode'
+    CleanTargetFolder: true
+- task: AzureNLBManagement@1
+  inputs:
+    azureSubscription: 'Azure subscription 1(8d8126e3-0402-41b3-b7ff-a03f5e20713a)'
+    ResourceGroupName: 'APIM_VM'
+    LoadBalancer: 
+    Action: 'Connect'
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      echo Hello world
+      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create --dir=$(HOME_DIR)/ci --passphrase-none --name=dev --type=pol --add $(HOME_DIR)"/sourcecode/APIProject11" --projpass-none --add $(HOME_DIR)"/sourcecode/commonProject1" --projpass-none --add $(HOME_DIR)"/sourcecode/APIProject22" --projpass-none
+      cp dev.pol $(HOME_DIR)/ci
+      cp $REPO/EnvironmentConfig/DEV/config.env $(HOME_DIR)/ci
+    workingDirectory: '$(HOME_DIR)'
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
