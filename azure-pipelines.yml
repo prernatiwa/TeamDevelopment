@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Default'
+  name: Default
 
 steps:
 - task: CopyFiles@2
