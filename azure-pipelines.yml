@@ -7,14 +7,14 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'apim-7'
 
 steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: '*/master'
     Contents: '**'
-    TargetFolder: '$(HOME_DIR)/sourcecode'
+    TargetFolder: '$(HOME)/sourcecode'
     CleanTargetFolder: true
 
 - task: CmdLine@2
@@ -22,9 +22,9 @@ steps:
     script: |
       echo Write your commands here
       echo Hello world
-      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create --dir=$(HOME_DIR)/ci --passphrase-none --name=dev --type=pol --add $(HOME_DIR)"/sourcecode/APIProject11" --projpass-none --add $(HOME_DIR)"/sourcecode/commonProject1" --projpass-none --add $(HOME_DIR)"/sourcecode/APIProject22" --projpass-none
-      cp dev.pol $(HOME_DIR)/ci
-      cp $REPO/EnvironmentConfig/DEV/config.env $(HOME_DIR)/ci
-    workingDirectory: '$(HOME_DIR)'
+      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create --dir=$(HOME)/ci --passphrase-none --name=dev --type=pol --add $(HOME)"/sourcecode/APIProject11" --projpass-none --add $(HOME)"/sourcecode/commonProject1" --projpass-none --add $(HOME)"/sourcecode/APIProject22" --projpass-none
+      cp dev.pol $(HOME)/ci
+      cp $REPO/EnvironmentConfig/DEV/config.env $(HOME)/ci
+    workingDirectory: '$(HOME)'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
