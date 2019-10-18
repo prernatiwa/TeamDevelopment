@@ -9,19 +9,12 @@ trigger:
 pool:
   name: Default
 steps:
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '*/master/'
-    Contents: '**'
-    TargetFolder: '$(HOME)/sourcecode'
-    CleanTargetFolder: true
-
 - task: CmdLine@2
   inputs:
     script: |
       echo Write your commands here
       echo Hello world
-      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create --dir=$(HOME)/ci --passphrase-none --name=dev --type=pol --add $(HOME)"/sourcecode/APIProject11" --projpass-none --add $(HOME)"/sourcecode/commonProject1" --projpass-none --add $(HOME)"/sourcecode/APIProject22" --projpass-none
+      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create --dir=$(HOME)/ci --passphrase-none --name=dev --type=pol --add master/APIProject11 --projpass-none --add master/commonProject --projpass-none --add master/APIProject22 --projpass-none
       cp dev.pol $(HOME)/ci
       cp $REPO/EnvironmentConfig/DEV/config.env $(HOME)/ci
     workingDirectory: '$(HOME)'
