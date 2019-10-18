@@ -14,9 +14,7 @@ steps:
     script: |
       echo Write your commands here
       echo Hello world
-      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create --dir=$(HOME)/ci --passphrase-none --name=dev --type=pol --add master/APIProject11 --projpass-none --add master/commonProject --projpass-none --add master/APIProject22 --projpass-none
-      cp dev.pol $(HOME)/ci
-      cp $REPO/EnvironmentConfig/DEV/config.env $(HOME)/ci
+      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create --dir=$(HOME)/ci --passphrase-none --name=dev --type=pol --add APIProject11 --projpass-none --add commonProject --projpass-none --add APIProject22 --projpass-none
     workingDirectory: '$(HOME)'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
