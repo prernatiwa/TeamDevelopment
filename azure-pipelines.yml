@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'apim-7'
+  vmImage: 'Default'
 
 steps:
 - task: CopyFiles@2
