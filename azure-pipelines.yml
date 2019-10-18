@@ -16,12 +16,7 @@ steps:
     Contents: '**'
     TargetFolder: '$(HOME_DIR)/sourcecode'
     CleanTargetFolder: true
-- task: AzureNLBManagement@1
-  inputs:
-    azureSubscription: 'Azure subscription 1(8d8126e3-0402-41b3-b7ff-a03f5e20713a)'
-    ResourceGroupName: 'APIM_VM'
-    LoadBalancer: 'LB_VM'
-    Action: 'Connect'
+
 - task: CmdLine@2
   inputs:
     script: |
