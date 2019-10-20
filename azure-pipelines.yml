@@ -14,7 +14,7 @@ steps:
     script: |
       echo Write your commands here
       echo Hello world
-      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create --dir=$(HOME)/ci --passphrase-none --name=dev --type=pol --add $(Agent.BuildDirectory)/APIProject11 --projpass-none --add $(Agent.BuildDirectory)/commonProject --projpass-none --add $(Agent.BuildDirectory)/APIProject22 --projpass-none
+      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create --dir=$(HOME)/ci --passphrase-none --name=dev --type=pol --add $(Agent.BuildDirectory)"/APIProject11" --projpass-none --add $(Agent.BuildDirectory)"/commonProject" --projpass-none --add $(Agent.BuildDirectory)'/APIProject22' --projpass-none
     workingDirectory: '$(HOME)'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
