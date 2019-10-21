@@ -23,7 +23,8 @@ steps:
   inputs:
     script: |
       echo Write your commands here
+      git add $(Agent.BuildDirectory)/s/.
       git commit -am "Added artificat after git build "$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
-      git push https://$(GitHubPAT)@$(GitTeamDevRepo)
+      git push https://$(GitHubPAT)@$(GitTeamDevRepo) origin master
       echo Hello world
   displayName: 'Push build artifact to GIT'
