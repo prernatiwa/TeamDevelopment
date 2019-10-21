@@ -25,5 +25,5 @@ steps:
       git add .
       git push git@github.com:prernatiwa/TeamDevelopment.git HEAD:master
       echo Write your commands here
-    workingDirectory: $(Agent.BuildDirectory)"/s"
+    workingDirectory: $(Agent.BuildDirectory)/s
   displayName: 'Push build artifact to GIT'
