@@ -24,6 +24,6 @@ steps:
     script: |
       echo Write your commands here
       git add $(Agent.BuildDirectory)/s/.
-      git commit -am "Added artificat after git build "$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
-      git push https://x-access-token:$(GitAccessToken)@github.com/prernatiwa/TeamDevelopment.git HEAD:master
+      git commit -am "Added artificat after git build " $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+      git push https://x-access-token:d6890ad790b2f640a6c61095a03b2f5047f74c06@github.com/prernatiwa/TeamDevelopment.git HEAD:master
   displayName: 'Push build artifact to GIT'
