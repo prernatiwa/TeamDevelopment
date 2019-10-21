@@ -24,6 +24,6 @@ steps:
     script: |
       echo Write your commands here
       git commit -am "Added artificat after git build "$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
-      git push https://$(GitHubPAT)@github.com:prernatiwa/TeamDevelopment.git
+      git push https://$(GitHubPAT)@$(GitTeamDevRepo)
       echo Hello world
   displayName: 'Push build artifact to GIT'
