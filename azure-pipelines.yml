@@ -25,5 +25,5 @@ steps:
       echo Write your commands here
       git add $(Agent.BuildDirectory)/s/.
       git commit -am "Added artificat after git build " $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
-      git -c http.extraheader="AUTHORIZATION: bearer $(system.accesstoken) push origin HEAD:master
+      git -c http.extraheader="AUTHORIZATION: bearer $(system.accesstoken)" push origin HEAD:master
   displayName: 'Push build artifact to GIT'
