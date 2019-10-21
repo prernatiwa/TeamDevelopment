@@ -22,9 +22,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      git fetch
       git add .
-      git commit -m "commit changes from azure build"$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+      git commit -m "commit changes from azure build1"
       git push git@github.com:prernatiwa/TeamDevelopment.git HEAD:master
       echo Write your commands here
     workingDirectory: $(Agent.BuildDirectory)/s
