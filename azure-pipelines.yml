@@ -12,9 +12,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      echo Write your commands here
-      echo Hello world
+      echo 'Start Build Process'
       $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create  --passphrase-none --name=dev --type=pol --add $(Agent.BuildDirectory)"/s/APIProject11" --projpass-none --add $(Agent.BuildDirectory)"/s/commonProject" --projpass-none --add $(Agent.BuildDirectory)'/s/APIProject22' --projpass-none
+      echo echo 'Package created successdully'
     workingDirectory: '$(HOME)'
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  displayName: 'Package build'
