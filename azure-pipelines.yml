@@ -22,6 +22,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
+      git pull git@github.com:prernatiwa/TeamDevelopment.git HEAD:master
       git add .
       git commit -m "commit changes from azure build"$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
       git push git@github.com:prernatiwa/TeamDevelopment.git HEAD:master
