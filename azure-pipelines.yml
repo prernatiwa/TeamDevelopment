@@ -15,7 +15,7 @@ steps:
   inputs:
     script: |
       echo 'Start Build Process'
-      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create  --passphrase-none --name=dev --type=pol --add $(Agent.BuildDirectory)"/s/APIProject11" --projpass-none --add $(Agent.BuildDirectory)"/s/APIProject22" --projpass-none --add $(Agent.BuildDirectory)"/s/commonProject" --projpass-none 
+      $(APIGWDEPLOYTOOLS)/apigateway/posix/bin/projpack --create  --passphrase-none --name=dev --type=pol --add $(Agent.BuildDirectory)"/s/APIProject11" --projpass-none --add $(Agent.BuildDirectory)"/s/APIProject22" --projpass-none --add $(Agent.BuildDirectory)"/s/commonProjectDefault" --projpass-none 
       echo echo 'Package created successfully'
     workingDirectory: '$(HOME)'
   displayName: 'Package build'
