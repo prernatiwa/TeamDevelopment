@@ -22,5 +22,6 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
+      git push git@github.com:prernatiwa/TeamDevelopment.git HEAD:master
       echo Write your commands here
   displayName: 'Push build artifact to GIT'
