@@ -22,7 +22,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-        echo Write your commands here
+        echo $APIGWDEPLOYTOOLS/apigateway/posix/bin/projdeploy --dir=$(Agent.BuildDirectory)/s --passphrase-none --name=dev --type=pol --apply-env=$(Agent.BuildDirectory)/s/EnvironmentConfig/DEV/config.env --deploy-to --host-name=$ADMINNM --port=8090 --user-name=admin --password=changeme --group-name=$GNAME --change-pass-to-none
         $APIGWDEPLOYTOOLS/apigateway/posix/bin/projdeploy --dir=$(Agent.BuildDirectory)/s --passphrase-none --name=dev --type=pol --apply-env=$(Agent.BuildDirectory)/s/EnvironmentConfig/DEV/config.env --deploy-to --host-name=$ADMINNM --port=8090 --user-name=admin --password=changeme --group-name=$GNAME --change-pass-to-none
         echo Hello world
     workingDirectory: '$(HOME)'
