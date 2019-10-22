@@ -22,6 +22,14 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
+        echo Write your commands here
+        $APIGWDEPLOYTOOLS/apigateway/posix/bin/projdeploy --dir=$(Agent.BuildDirectory)/s --passphrase-none --name=dev --type=pol --apply-env=$(Agent.BuildDirectory)/s/EnvironmentConfig/DEV/config.env --deploy-to --host-name=$ADMINNM --port=8090 --user-name=admin --password=changeme --group-name=$GNAME --change-pass-to-none
+        echo Hello world
+    workingDirectory: '$(HOME)'
+  displayName: 'Package Deploy'  
+- task: CmdLine@2
+  inputs:
+    script: |
       git config --global user.name "prernatiwa"
       git config --global user.email "prernatiwa@gmail.com"
       git add .
@@ -30,9 +38,3 @@ steps:
       echo Write your commands here
     workingDirectory: $(Agent.BuildDirectory)/s
   displayName: 'Push build artifact to GIT'
-- task: CmdLine@2
-  inputs:
-    script: |
-        echo Write your commands here
-        $APIGWDEPLOYTOOLS/apigateway/posix/bin/projdeploy --dir=$(Agent.BuildDirectory)"/s" --passphrase-none --name=common --type=pol --apply-env=$(Agent.BuildDirectory)/s/EnvironmentConfig/DEV/config.env --deploy-to --host-name=$ADMINNM --port=8090 --user-name=admin --password=changeme --group-name=$GNAME --change-pass-to-none
-        echo Hello world
