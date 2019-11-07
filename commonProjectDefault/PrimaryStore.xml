@@ -6823,6 +6823,87 @@
 	<fval name="overwriteExistingHeader"><value>1</value></fval>
 	<fval name="successNode"><value contentType="reference">1510427785428215392</value></fval>
 </entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit" entityPK="5202134959867462097" parentPK="-7887404495341629470">
+	<fval name="category"><value contentType="reference">-7509447965632017883</value></fval>
+	<fval name="description"><value></value></fval>
+	<fval name="logMask"><value>3</value></fval>
+	<fval name="name"><value>OpenWeatherTrans</value></fval>
+	<fval name="start"><value contentType="reference">-94635402164233683</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Reflector" entityPK="-5088704455376045099" parentPK="5202134959867462097">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="httpResponseStatus"><value>200</value></fval>
+	<fval name="logFailure"><value>Failed to echo back the message</value></fval>
+	<fval name="logFatal"><value>Error occurred while echoing the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Successfully echoed back the message</value></fval>
+	<fval name="name"><value>Reflect Message</value></fval>
+	<fval name="successNode"><value contentType="reference">-1</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="JSONPathFilter" entityPK="-94635402164233683" parentPK="5202134959867462097">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="logFailure"><value>Filter failed</value></fval>
+	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Filter passed</value></fval>
+	<fval name="name"><value>JSON Path</value></fval>
+	<fval name="successNode"><value contentType="reference">5656442068266039633</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="JSONPath" entityPK="-5032471483611443452" parentPK="-94635402164233683">
+	<fval name="attributeName"><value>main.temp</value></fval>
+	<fval name="expression"><value>$.main.temp</value></fval>
+	<fval name="failOnError"><value>1</value></fval>
+	<fval name="unmarshalType"><value>java.lang.String</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="JSONAddNodeFilter" entityPK="1931950818118460105" parentPK="5202134959867462097">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="content"><value>${main.temp.cel}</value></fval>
+	<fval name="expression"><value>$.main</value></fval>
+	<fval name="expressionType"><value>0</value></fval>
+	<fval name="insertLocationType"><value>1</value></fval>
+	<fval name="logFailure"><value>Filter failed</value></fval>
+	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Filter passed</value></fval>
+	<fval name="name"><value>JSON Add Node</value></fval>
+	<fval name="objectFieldName"><value>temp_cel</value></fval>
+	<fval name="successNode"><value contentType="reference">5597790262523884358</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter" entityPK="5597790262523884358" parentPK="5202134959867462097">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="body"><value>${content.body}</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="logFailure"><value>Failed in setting the message</value></fval>
+	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Success in setting the message</value></fval>
+	<fval name="name"><value>Set Message</value></fval>
+	<fval name="outputContentType"><value>text/html</value></fval>
+	<fval name="successNode"><value contentType="reference">-5088704455376045099</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="JavaScriptFilter" entityPK="5656442068266039633" parentPK="5202134959867462097">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="consumedProperties"></fval>
+	<fval name="engineName"><value>nashorn</value></fval>
+	<fval name="generatedProperties"><value>main.temp.cel</value></fval>
+	<fval name="logFailure"><value>Failed script filter</value></fval>
+	<fval name="logFatal"><value>Error while attempt to run script filter. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Passed script filter</value></fval>
+	<fval name="name"><value>Scripting Language</value></fval>
+	<fval name="requiredProperties"></fval>
+	<fval name="script"><value>function invoke(msg)         { &#xD;&#xA;var tempInKelvin = msg.get(&quot;main.temp&quot;);&#xD;&#xA; var standardDiff = 273.15;&#xD;&#xA; var tempInCelsius = tempInKelvin - standardDiff ;&#xD;&#xA; msg.put(&quot;main.temp.cel&quot;, tempInCelsius.toFixed(3));&#xD;&#xA; return true;&#xD;&#xA;    &#xD;&#xA;}</value></fval>
+	<fval name="successNode"><value contentType="reference">1931950818118460105</value></fval>
+</entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="AccessLogger" entityPK="-7383505913458126491" parentPK="0">
 	<fval name="name"><value>AccessLogger</value></fval>
 	<fval name="pattern"><value>%h %l %u %t &quot;%r&quot; %s %b</value></fval>
