@@ -27,14 +27,14 @@ steps:
         echo Hello world
     workingDirectory: '$(HOME)'
   displayName: 'Package Deploy'  
-- task: CmdLine@2
-  inputs:
-    script: |
-      git config --global user.name "prernatiwa"
-      git config --global user.email "prernatiwa@gmail.com"
-      git add .
-      git commit -m "commit changes from azure build1"
-      git push git@github.com:prernatiwa/TeamDevelopment.git HEAD:master
-      echo Write your commands here
-    workingDirectory: $(Agent.BuildDirectory)/s
-  displayName: 'Push build artifact to GIT'
+#- task: CmdLine@2
+ # inputs:
+  #  script: |
+   #   git config --global user.name "prernatiwa"
+    #  git config --global user.email "prernatiwa@gmail.com"
+     # git add .
+      #git commit -m "commit changes from azure build1"
+      #git push git@github.com:prernatiwa/TeamDevelopment.git HEAD:master
+      #echo Write your commands here
+    #workingDirectory: $(Agent.BuildDirectory)/s
+  #displayName: 'Push build artifact to GIT'
