@@ -17127,6 +17127,8 @@
 	<fval name="adminPassword"><value>Y2hhbmdlbWU=</value></fval>
 	<fval name="apiregFaultHandlerPolicies"><value contentType="reference">
 <key type='CircuitContainer'><id field='name' value='Generated Policies'/><key type='CircuitContainer'><id field='name' value='REST API&apos;s'/><key type='CircuitContainer'><id field='name' value='Templates'/><key type='FilterCircuit'><id field='name' value='Default Fault Handler'/></key></key></key></key>	</value></fval>
+	<fval name="apiregResponsePolicies"><value contentType="reference">
+<key type='CircuitContainer'><id field='name' value='API Manager Policies'/><key type='FilterCircuit'><id field='name' value='OpenWeatherTrans'/></key></key>	</value></fval>
 	<fval name="applicationQuotaWarnThresholdPercent"><value>80</value></fval>
 	<fval name="asyncExecutorStopWaitMs"><value>5000</value></fval>
 	<fval name="communityName"><value>Community</value></fval>
