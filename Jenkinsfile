@@ -19,4 +19,12 @@ echo \'DEPLOYED\''''
       }
     }
   }
+  environment {
+    ADMINNM = '54.206.109.15'
+    GNAME = 'DEV'
+    REPO = '/home/ec2-user/repo/APISwaggerPromote'
+    GWLB = '54.206.109.15'
+    APIGWDEPLOYTOOLS = '/home/ec2-user/Axway-7.7.0'
+    SITGWELB = 'GW-UAT-LB-371846769.us-east-1.elb.amazonaws.com'
+  }
 }
