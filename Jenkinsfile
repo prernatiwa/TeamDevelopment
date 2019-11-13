@@ -11,10 +11,10 @@ pipeline {
         sh '''echo "Creating Project Package"
           echo "Project Workspace is " ${WORKSPACE}
           path = "${WORKSPACE}/env_dev.properties"
-          script {
-                  readprops = readProperties file:'env_dev.properties'
-                  echo "version is ${readprops['ADMINNM']}"
-                  }
+           script {
+                  readprops = readProperties file:'props.txt'
+                  echo "version is ${readprops['version']}"
+         }
           echo "ADMINNM is ${readprops['ADMINNM']}" 
           $APIGWDEPLOYTOOLS/apigateway/posix/bin/projpack --create  --dir=. --passphrase-none --name=common --type=pol --add ${WORKSPACE}"/APIProject11" --projpass-none --add ${WORKSPACE}"/APIProject22" --projpass-none --add ${WORKSPACE}"/commonProjectDefault" --projpass-none 
           cp common.pol /home/ec2-user/'''
