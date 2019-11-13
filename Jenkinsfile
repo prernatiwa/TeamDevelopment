@@ -1,6 +1,7 @@
 def readprops
-  def loadProperties(path) {
-    readprops = readProperties file:'path'
+  def loadProperties() {
+      readprops = readProperties file:'env_dev.properties'
+      echo "version is ${readprops['ADMINNM']}"
     }
 
 pipeline {
@@ -9,8 +10,7 @@ pipeline {
     stage('LoadConfiguration'){
         steps {
           script {
-                  readprops = readProperties file:'env_dev.properties'
-                  echo "version is ${readprops['ADMINNM']}"
+                 loadProperties() 
          }
         }
     }
@@ -18,7 +18,7 @@ pipeline {
       steps {
         sh '''echo "Creating Project Package"
           echo "Project Workspace is " ${WORKSPACE}
-          echo "version is ${readprops['ADMINNM']}"
+          echo "version1 is ${readprops['ADMINNM']}"
           $APIGWDEPLOYTOOLS/apigateway/posix/bin/projpack --create  --dir=. --passphrase-none --name=common --type=pol --add ${WORKSPACE}"/APIProject11" --projpass-none --add ${WORKSPACE}"/APIProject22" --projpass-none --add ${WORKSPACE}"/commonProjectDefault" --projpass-none 
           cp common.pol /home/ec2-user/'''
          sh '''echo "Deploy Project"
