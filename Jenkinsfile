@@ -22,7 +22,20 @@ pipeline {
          }
         }
     }
-   
+     stage('Test') {
+      steps {
+          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'simple_creds', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
+            echo "echo step - env: ${env.USERNAME} - password through ${env.PASSWORD}"
+            sh 'echo "sh step - echo: ${USERNAME} - ${PASSWORD}"'
+            script{
+            usernameLocal = env.USERNAME
+            passwordLocal = env.PASSWORD
+            }
+            echo "echo step (in block) - vars: ${usernameLocal} - ${passwordLocal}"
+          } 
+          echo "echo step (out of block) - vars: ${usernameLocal} - ${passwordLocal}"
+      }
+    }
     stage('Build') {
       steps {
         sh '''echo "Creating Project Package"
@@ -48,20 +61,7 @@ pipeline {
         
       }
     }
-     stage('Test') {
-      steps {
-          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'simple_creds', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
-            echo "echo step - env: ${env.USERNAME} - password through ${env.PASSWORD}"
-            sh 'echo "sh step - echo: ${USERNAME} - ${PASSWORD}"'
-            script{
-            usernameLocal = env.USERNAME
-            passwordLocal = env.PASSWORD
-            }
-            echo "echo step (in block) - vars: ${usernameLocal} - ${passwordLocal}"
-          } 
-          echo "echo step (out of block) - vars: ${usernameLocal} - ${passwordLocal}"
-      }
-    }
+   
     
     
   }
