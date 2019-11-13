@@ -9,8 +9,8 @@ pipeline {
     stage('LoadConfiguration'){
         steps {
           script {
-                  readprops = readProperties file:'props.txt'
-                  echo "version is ${readprops['version']}"
+                  readprops = readProperties file:'env_dev.properties'
+                  echo "version is ${readprops['ADMINNM']}"
          }
         }
     }
