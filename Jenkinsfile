@@ -7,7 +7,8 @@ def RELEASE
 def loadProperties() {
    readprops = readProperties file:'props.txt'
    echo "version is ${readprops['version']}"
-   FIX = props['fix']
+   VERSION = readprops['version']
+   FIX = readprops['fix']
 }
 
 pipeline {
