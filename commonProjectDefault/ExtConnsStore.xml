@@ -2086,7 +2086,7 @@
 	<fval name="username"><value></value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CassandraSettings" entityPK="5751651540088273732" parentPK="0">
-	<fval name="keySpace"><value>x${DOMAIN_ID}_${GROUP_ID}</value></fval>
+	<fval name="keySpace"><value>x${DOMAINID}_${GROUPID}</value></fval>
 	<fval name="name"><value>Cassandra Settings</value></fval>
 	<fval name="password"><value></value></fval>
 	<fval name="replication"><value>1</value></fval>
@@ -2096,7 +2096,7 @@
 	<fval name="sslProtocolOptionsMask"><value>7</value></fval>
 	<fval name="sslTrustedCerts"><value contentType="reference">
 <key type='Certificates'><id field='name' value='Certificate Store'/><key type='Certificate'><id field='dname' value='CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE'/></key></key>	</value></fval>
-	<fval name="throttlingKeySpace"><value>x${DOMAIN_ID}_${GROUP_ID}</value></fval>
+	<fval name="throttlingKeySpace"><value>x${DOMAINID}_${GROUPID}</value></fval>
 	<fval name="throttlingReadConsistencyLevel"><value>QUORUM</value></fval>
 	<fval name="throttlingReplication"><value>3</value></fval>
 	<fval name="throttlingReplicationStrategy"><value>org.apache.cassandra.locator.SimpleStrategy</value></fval>
