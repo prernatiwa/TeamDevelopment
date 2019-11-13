@@ -1,4 +1,5 @@
 def readprops
+def usernameLocal, passwordLocal
   def loadProperties() {
       readprops = readProperties file:'env_dev.properties'
       keys= readprops.keySet()
@@ -38,8 +39,6 @@ pipeline {
     }
      stage('Test') {
       steps {
-        
-        def usernameLocal, passwordLocal
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'simple_creds', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
             echo "echo step - env: ${env.USERNAME} - password through ${env.PASSWORD}"
             sh 'echo "sh step - echo: ${USERNAME} - ${PASSWORD}"'
