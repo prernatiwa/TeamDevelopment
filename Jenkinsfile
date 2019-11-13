@@ -11,7 +11,6 @@ def loadProperties_prod() {
         value = readprops["${key}"]
         env."${key}" = "${value}"
     }
-    // echo "version is ${env.ADMINNM}"
 }
 
 /**------Function to Load Development configuration-------**//
@@ -22,7 +21,6 @@ def loadProperties_dev() {
         value = readprops["${key}"]
         env."${key}" = "${value}"
     }
-     //echo "version is ${env.ADMINNM}"
 }
 
 pipeline {
