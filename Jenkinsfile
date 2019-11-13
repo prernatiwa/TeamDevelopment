@@ -27,7 +27,9 @@ pipeline {
          
             echo "${env.ADMINNM}"
             echo "Hello dear" 
-        
+          echo "Project Workspace is  ${WORKSPACE}"
+          
+         
       }
     }
     }
