@@ -1,7 +1,6 @@
   def loadProperties(path) {
     readprops = readProperties file:'path'
     }
-}
 
 pipeline {
   agent any
