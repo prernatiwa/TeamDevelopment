@@ -38,7 +38,7 @@ pipeline {
     }
      stage('Test') {
       steps {
-        sh 'echo "Testing"'
+        
         def usernameLocal, passwordLocal
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'simple_creds', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
             echo "echo step - env: ${env.USERNAME} - password through ${env.PASSWORD}"
