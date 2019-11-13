@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh '''echo "Creating Project Package"
 echo "Project Workspace is " ${WORKSPACE}
-path = "${workspace}/env_dev.properties"
+path = "${WORKSPACE}/env_dev.properties"
 loadProperties(path)
 echo "variable ADMINNM" $ADMINNM
 echo "variable env.ADMINNM" ${env.ADMINNM}
