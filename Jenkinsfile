@@ -55,7 +55,7 @@ pipeline {
         
         sh '''  
           echo "Deploy Project"
-          ${APIGWDEPLOYTOOLS}/apigateway/posix/bin/projdeploy --dir=. --passphrase-none --name=common --type=pol --apply-env=${WORKSPACE}/EnvironmentConfig/DEV/config.env --deploy-to --host-name=${ADMINNM} --port=${PORT} --user-name=${usernameLocal} --password=${passwordLocal} --group-name=${GNAME} --change-pass-to-none
+          ${APIGWDEPLOYTOOLS}/apigateway/posix/bin/projdeploy --dir=. --passphrase-none --name=common --type=pol --apply-env=${WORKSPACE}/EnvironmentConfig/DEV/config.env --deploy-to --host-name=${ADMINNM} --port=${PORT} --user-name="${usernameLocal}" --password="${passwordLocal}" --group-name=${GNAME} --change-pass-to-none
           echo "DEPLOYED"'''
         }
         
