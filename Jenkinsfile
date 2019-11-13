@@ -16,7 +16,7 @@ echo \'DEPLOYED\''''
     }
     stage('Test') {
       steps {
-        sh 'echo "Testing "'
+        sh 'echo "Testing"'
       }
     }
   }
