@@ -1,5 +1,6 @@
 
 def VERSION
+def readprops
 def FIX
 def RELEASE
 
@@ -20,8 +21,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-         loadProperties()
-         echo "${props.version}"
+         readprops = readProperties file:'props.txt'
+         echo """${readprops['version']}"""
 
       }
    }
