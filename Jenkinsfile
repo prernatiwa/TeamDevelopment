@@ -11,6 +11,12 @@ def loadProperties() {
    echo "version1 is ${VERSION}"
    env.FIX = readprops['fix']
    env.custom_var = readprops['version']
+
+   keys= readprops.keySet()
+    for(key in keys) {
+        value = readprops["${key}"]
+        env."${key}" = "${value}"
+    }
 }
 
 pipeline {
@@ -20,7 +26,7 @@ pipeline {
       steps {
          script {
          loadProperties()
-         echo "${env.FIX}"
+         echo "${env.fix}"
          echo "${env.custom_var}"
          }
       }
