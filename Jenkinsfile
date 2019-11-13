@@ -1,3 +1,4 @@
+def readprops
   def loadProperties(path) {
     readprops = readProperties file:'path'
     }
@@ -11,7 +12,7 @@ pipeline {
           echo "Project Workspace is " ${WORKSPACE}
           path = "${WORKSPACE}/env_dev.properties"
           script {
-                  loadProperties(path)
+                  readprops = readProperties file:'"${WORKSPACE}/env_dev.properties"'
                   }
           echo "ADMINNM is ${readprops['ADMINNM']}" 
           $APIGWDEPLOYTOOLS/apigateway/posix/bin/projpack --create  --dir=. --passphrase-none --name=common --type=pol --add ${WORKSPACE}"/APIProject11" --projpass-none --add ${WORKSPACE}"/APIProject22" --projpass-none --add ${WORKSPACE}"/commonProjectDefault" --projpass-none 
