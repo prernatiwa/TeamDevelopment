@@ -60,7 +60,7 @@ pipeline {
                 }
                 echo "echo step (in block) - vars: ${usernameLocal} - ${passwordLocal}"
                 **/
-            
+            sh '''
               echo "Deploy Project"
               ${APIGWDEPLOYTOOLS}/apigateway/posix/bin/projdeploy --dir=. --passphrase-none --name=common --type=pol --apply-env=${WORKSPACE}/EnvironmentConfig/DEV/config.env --deploy-to --host-name=${ADMINNM} --port=${PORT} --user-name=${USERNAME}  --password=${PASSWORD} --group-name=${GNAME} --change-pass-to-none
               echo "DEPLOYED"'''
