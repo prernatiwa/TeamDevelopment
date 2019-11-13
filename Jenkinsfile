@@ -1,10 +1,11 @@
-def props = null
+
 def VERSION
 def FIX
 def RELEASE
 
 def loadProperties() {
-   props = readProperties file:'props.txt'
+   def props = readProperties file:'props.txt'
+   echo "version is" props.version
    echo "version is" "${props.version}"
 }
 
