@@ -24,13 +24,10 @@ pipeline {
       steps {
         script {
           echo "Creating Project Package"
-          echo "Project Workspace is " ${WORKSPACE}
-          
+         
             echo "${env.ADMINNM}"
             echo "Hello dear" 
-         
-          
-           
+        
       }
     }
     }
