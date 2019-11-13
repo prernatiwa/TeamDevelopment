@@ -30,9 +30,16 @@ pipeline {
           cp common.pol /home/ec2-user/'''
         sh '''  
           echo "Deploy Project"
-          ${APIGWDEPLOYTOOLS}/apigateway/posix/bin/projdeploy --dir=. --passphrase-none --name=common --type=pol --apply-env=${WORKSPACE}/EnvironmentConfig/DEV/config.env --deploy-to --host-name=${ADMINNM} --port=8090 --user-name=admin --password=changeme --group-name=${GNAME} --change-pass-to-none
+          ${APIGWDEPLOYTOOLS}/apigateway/posix/bin/projdeploy --dir=. --passphrase-none --name=common --type=pol --apply-env=${WORKSPACE}/EnvironmentConfig/DEV/config.env --deploy-to --host-name=${ADMINNM} --port=${PORT} --user-name=admin --password=changeme --group-name=${GNAME} --change-pass-to-none
           echo "DEPLOYED"'''
-           
+        def usernameLocal, passwordLocal
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'simple_creds', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
+            echo "echo step - env: ${env.USERNAME} - password through ${env.PASSWORD}"
+            sh 'echo "sh step - echo: ${USERNAME} - ${PASSWORD}"'
+            usernameLocal = env.USERNAME
+            passwordLocal = env.PASSWORD
+            echo "echo step (in block) - vars: ${usernameLocal} - ${passwordLocal}"
+          } 
       }
     }
      stage('Test') {
