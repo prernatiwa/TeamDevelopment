@@ -5,7 +5,9 @@ def readprops
       for(key in keys) {
           value = readprops["${key}"]
           env."${key}" = "${value}"
+         
       }
+       echo "version is ${env.ADMINNM}"
     }
 
 pipeline {
