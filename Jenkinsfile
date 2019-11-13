@@ -50,7 +50,7 @@ pipeline {
          
           echo "credential id is ${env.credentialsId}"
           // Used Credentials Plugin to retrieve credentials from Jenkins
-           withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: ${env.credentialsId}, passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
+           withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "${env.credentialsId}", passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
               /**
                echo "echo step - env: ${env.USERNAME} - password through ${env.PASSWORD}"
                 sh 'echo "sh step - echo: ${USERNAME} - ${PASSWORD}"'
