@@ -5,15 +5,8 @@ def FIX
 def RELEASE
 
 def loadProperties() {
-   def props = readProperties file:'props.txt'
-   echo ${props.version}
-   keys= props.keySet()
-    for(key in keys) {
-        value = props["${key}"]
-        env."${key}" = "${value}"
-    }
-    echo ${env.version}
-   echo "version is" "${env.version}"
+   readprops = readProperties file:'props.txt'
+   echo "version is ${readprops['version']}"
 }
 
 pipeline {
@@ -22,8 +15,7 @@ pipeline {
     stage('Build') {
       steps {
          script {
-         readprops = readProperties file:'props.txt'
-         echo """${readprops['version']}"""
+         loadProperties()
          }
       }
    }
