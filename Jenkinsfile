@@ -6,10 +6,13 @@ pipeline {
         sh '''echo "Creating Project Package"
 echo "Project Workspace is " ${WORKSPACE}
 path = "${WORKSPACE}/env_dev.properties"
-script {
-props(path)
-loadProperties(path)
-      }
+
+def props = readProperties  file:'${WORKSPACE}/env_dev.properties'
+def Var1= props['ADMINNM']
+def Var2= props['GNAME']
+echo "Var1=${Var1}"
+echo "Var2=${Var2}"
+
 echo "variable ADMINNM" $ADMINNM
 echo "variable env.ADMINNM" ${env.ADMINNM}
 
