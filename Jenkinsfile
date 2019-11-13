@@ -4,12 +4,10 @@ def FIX
 def RELEASE
 
 def loadProperties() {
-node {
    props = readProperties file:'props.txt'
    VERSION = props['version']
    FIX = props['fix']
    RELEASE = VERSION + "_" + FIX
-}
 }
 
 pipeline {
