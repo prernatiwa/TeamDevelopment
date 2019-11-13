@@ -18,7 +18,7 @@ pipeline {
       steps {
          script {
          loadProperties()
-         echo ${FIX}
+         echo "${FIX}"
          }
       }
    }
