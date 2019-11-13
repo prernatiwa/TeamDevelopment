@@ -23,7 +23,7 @@ echo \'DEPLOYED\''''
         sh 'echo "Testing"'
       }
     }
-  }
+  
 
   def loadProperties(path) {
     properties = new Properties()
@@ -35,5 +35,6 @@ echo \'DEPLOYED\''''
     String value =(String) properties.getProperty(key)
     env."${key}" = "${value}"
     }
+}
 }
 }
