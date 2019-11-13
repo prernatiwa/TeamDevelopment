@@ -32,7 +32,13 @@ pipeline {
           echo "Deploy Project"
           ${APIGWDEPLOYTOOLS}/apigateway/posix/bin/projdeploy --dir=. --passphrase-none --name=common --type=pol --apply-env=${WORKSPACE}/EnvironmentConfig/DEV/config.env --deploy-to --host-name=${ADMINNM} --port=${PORT} --user-name=admin --password=changeme --group-name=${GNAME} --change-pass-to-none
           echo "DEPLOYED"'''
-        step{  
+         
+        
+      }
+    }
+     stage('Test') {
+      steps {
+        sh 'echo "Testing"'
         def usernameLocal, passwordLocal
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'simple_creds', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
             echo "echo step - env: ${env.USERNAME} - password through ${env.PASSWORD}"
@@ -40,12 +46,7 @@ pipeline {
             usernameLocal = env.USERNAME
             passwordLocal = env.PASSWORD
             echo "echo step (in block) - vars: ${usernameLocal} - ${passwordLocal}"
-          } }
-      }
-    }
-     stage('Test') {
-      steps {
-        sh 'echo "Testing"'
+          } 
       }
     }
     
