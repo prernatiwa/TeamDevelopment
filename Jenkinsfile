@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'echo "version is ${env.ADMINNM}"'
+        echo "version is ${env.ADMINNM}"
       }
     }
     stage('Build') {
