@@ -8,7 +8,9 @@ def loadProperties() {
    readprops = readProperties file:'props.txt'
    echo "version is ${readprops['version']}"
    VERSION = readprops['version']
-   FIX = readprops['fix']
+   echo "version1 is ${VERSION}"
+   env.FIX = readprops['fix']
+   env.custom_var = readprops['version']
 }
 
 pipeline {
@@ -18,7 +20,8 @@ pipeline {
       steps {
          script {
          loadProperties()
-         echo "${FIX}"
+         echo "${env.FIX}"
+         echo "${env.custom_var}"
          }
       }
    }
