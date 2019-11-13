@@ -1,27 +1,29 @@
 def readprops
-/*
-def usernameLocal
-def passwordLocal
-*/
-  def loadProperties_prod() {
-      readprops = readProperties file:'env_prod.properties'
-      keys= readprops.keySet()
-      for(key in keys) {
-          value = readprops["${key}"]
-          env."${key}" = "${value}"
-      }
-       echo "version is ${env.ADMINNM}"
+  /*
+  def usernameLocal
+  def passwordLocal
+  */
+/**------Function to Load Production configuration-------**//
+def loadProperties_prod() {
+    readprops = readProperties file:'env_prod.properties'
+    keys= readprops.keySet()
+    for(key in keys) {
+        value = readprops["${key}"]
+        env."${key}" = "${value}"
     }
+    // echo "version is ${env.ADMINNM}"
+}
 
-  def loadProperties_dev() {
-      readprops = readProperties file:'env_dev.properties'
-      keys= readprops.keySet()
-      for(key in keys) {
-          value = readprops["${key}"]
-          env."${key}" = "${value}"
-      }
-       echo "version is ${env.ADMINNM}"
+/**------Function to Load Development configuration-------**//
+def loadProperties_dev() {
+    readprops = readProperties file:'env_dev.properties'
+    keys= readprops.keySet()
+    for(key in keys) {
+        value = readprops["${key}"]
+        env."${key}" = "${value}"
     }
+     //echo "version is ${env.ADMINNM}"
+}
 
 pipeline {
   agent any
@@ -30,14 +32,14 @@ pipeline {
         steps {
           script {
                   if (env.BRANCH_NAME != 'master' && env.BRANCH_NAME != 'staging') {
-                    echo 'This is not master or staging'
-
+                      echo "This is ${env.BRANCH_NAME} Branch and loading the production configuration"
+                      loadProperties_dev()
                   } else {
                       echo "This is ${env.BRANCH_NAME} Branch and loading the production configuration"
                       loadProperties_prod()
                   }
-         }
-        }
+                  }
+               }
     }
      
     stage('Build') {
@@ -65,15 +67,12 @@ pipeline {
               ${APIGWDEPLOYTOOLS}/apigateway/posix/bin/projdeploy --dir=. --passphrase-none --name=common --type=pol --apply-env=${WORKSPACE}/EnvironmentConfig/DEV/config.env --deploy-to --host-name=${ADMINNM} --port=${PORT} --user-name=${USERNAME}  --password=${PASSWORD} --group-name=${GNAME} --change-pass-to-none
               echo "DEPLOYED"'''
         }
-        
       }
     }
     stage('Test') {
       steps {
          sh 'echo "Testing "'
+          }
     }
-    }
-    
   }
-
 }
