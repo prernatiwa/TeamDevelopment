@@ -15,7 +15,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-         echo ${RELEASE}
+         echo "${RELEASE}"
       }
    }
    }
