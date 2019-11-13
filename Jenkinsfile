@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''echo "Creating Project Package"
+        sh '''echo "Creating Project Package "
 
 $APIGWDEPLOYTOOLS/apigateway/posix/bin/projpack --create  --dir=. --passphrase-none --name=common --type=pol --add $REPO"/Policies/APIProject11" --projpass-none --add $REPO"/Policies/APIProject22" --projpass-none --add $REPO"/Policies/commonProjectDefault" --projpass-none 
 cp common.pol /home/ec2-user/'''
