@@ -6,6 +6,7 @@ pipeline {
         sh '''echo "Creating Project Package"
 echo "Project Workspace is " ${WORKSPACE}
 path = "${WORKSPACE}/env_dev.properties"
+props(path)
 loadProperties(path)
 echo "variable ADMINNM" $ADMINNM
 echo "variable env.ADMINNM" ${env.ADMINNM}
@@ -36,4 +37,7 @@ echo \'DEPLOYED\''''
     String value =(String) properties.getProperty(key)
     env."${key}" = "${value}"
     }
+}
+def props(String path){
+  echo "path from props " ${path}
 }
