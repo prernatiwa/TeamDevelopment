@@ -11,10 +11,10 @@ node {
 }
 
 pipeline {
-   agent any
-   stages {
+  agent any
+  stages {
+    stage('Build') {
       steps {
-      stage('Build') {
          echo ${RELEASE}
       }
    }
