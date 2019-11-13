@@ -5,8 +5,12 @@ def RELEASE
 
 def loadProperties() {
    def props = readProperties file:'props.txt'
-   echo "version is" props.version
-   echo "version is" "${props.version}"
+   keys= props.keySet()
+    for(key in keys) {
+        value = props["${key}"]
+        env."${key}" = "${value}"
+    }
+   echo "version is" "${env.version}"
 }
 
 pipeline {
