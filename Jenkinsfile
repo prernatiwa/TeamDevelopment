@@ -26,7 +26,7 @@ echo \'DEPLOYED\''''
   }
 }
 
-  def loadProperties(path) {
+  def loadProperties(String path) {
     properties = new Properties()
     File propertiesFile = new File(path)
     properties.load(propertiesFile.newDataInputStream())
