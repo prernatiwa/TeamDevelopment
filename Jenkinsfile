@@ -32,7 +32,7 @@ pipeline {
           cp common.pol /home/ec2-user/
           echo "Deploy Project"
           "${env.APIGWDEPLOYTOOLS}/apigateway/posix/bin/projdeploy --dir=. --passphrase-none --name=common --type=pol --apply-env=${WORKSPACE}/EnvironmentConfig/DEV/config.env --deploy-to --host-name=${env.ADMINNM} --port=8090 --user-name=admin --password=changeme --group-name=${env.GNAME} --change-pass-to-none"
-          echo \'DEPLOYED\'
+          echo "DEPLOYED"
            
       }
     }
