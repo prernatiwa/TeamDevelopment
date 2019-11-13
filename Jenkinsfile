@@ -3,7 +3,7 @@ def readprops
   def usernameLocal
   def passwordLocal
   */
-/**------Function to Load Production configuration-------**//
+/**------Function to Load Production configuration-------**/
 def loadProperties_prod() {
     readprops = readProperties file:'env_prod.properties'
     keys= readprops.keySet()
@@ -13,7 +13,7 @@ def loadProperties_prod() {
     }
 }
 
-/**------Function to Load Development configuration-------**//
+/**------Function to Load Development configuration-------**/
 def loadProperties_dev() {
     readprops = readProperties file:'env_dev.properties'
     keys= readprops.keySet()
