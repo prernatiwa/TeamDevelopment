@@ -16,7 +16,8 @@ pipeline {
       steps {
          script {
          loadProperties()
-         echo "fix is ${readprops['fix']}"
+         echo "Later one ${readprops.version}"
+         echo "version is ${readprops['version']}"
          }
       }
    }
