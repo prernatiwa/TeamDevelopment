@@ -20,16 +20,12 @@ pipeline {
          }
         }
     }
-    stage('Test') {
-      steps {
-        echo "version is ${env.ADMINNM}"
-      }
-    }
+   
     stage('Build') {
       steps {
         sh '''echo "Creating Project Package"
          
-          echo "version1 is ${env.ADMINNM}"
+          echo "version1 is ${ADMINNM}"
           echo "Hello dear" 
           echo "Project Workspace is  ${WORKSPACE}"
           echo "${env.APIGWDEPLOYTOOLS}/apigateway/posix/bin/projpack --create  --dir=. --passphrase-none --name=common --type=pol --add ${WORKSPACE}/APIProject11 --projpass-none --add ${WORKSPACE}/APIProject22 --projpass-none --add ${WORKSPACE}/commonProjectDefault --projpass-none"
@@ -41,7 +37,11 @@ pipeline {
            
       }
     }
-    
+     stage('Test') {
+      steps {
+        sh 'echo "Testing"'
+      }
+    }
     
     
   }
