@@ -24,7 +24,8 @@ pipeline {
       steps {
         sh '''echo "Creating Project Package"
           echo "Project Workspace is " ${WORKSPACE}
-          echo "version1 is ${env.ADMINNM}"
+          echo "${env.ADMINNM}"
+          echo "Hello dear"
           "${env.APIGWDEPLOYTOOLS}"/apigateway/posix/bin/projpack --create  --dir=. --passphrase-none --name=common --type=pol --add ${WORKSPACE}"/APIProject11" --projpass-none --add ${WORKSPACE}"/APIProject22" --projpass-none --add ${WORKSPACE}"/commonProjectDefault" --projpass-none 
           cp common.pol /home/ec2-user/'''
          sh '''echo "Deploy Project"
