@@ -5,6 +5,10 @@ pipeline {
       steps {
         sh '''echo "Creating Project Package"
 echo "Project Workspace is " ${WORKSPACE}
+path = "${workspace}/env_dev.properties"
+loadProperties(path)
+echo "variable ADMINNM" $ADMINNM
+echo "variable env.ADMINNM" ${env.ADMINNM}
 
 $APIGWDEPLOYTOOLS/apigateway/posix/bin/projpack --create  --dir=. --passphrase-none --name=common --type=pol --add ${WORKSPACE}"/APIProject11" --projpass-none --add ${WORKSPACE}"/APIProject22" --projpass-none --add ${WORKSPACE}"/commonProjectDefault" --projpass-none 
 cp common.pol /home/ec2-user/'''
@@ -20,12 +24,16 @@ echo \'DEPLOYED\''''
       }
     }
   }
-  environment {
-    ADMINNM = '54.206.109.15'
-    GNAME = 'DEV'
-    REPO = '/home/ec2-user/repo/TeamDevelopment'
-    GWLB = '54.206.109.15'
-    APIGWDEPLOYTOOLS = '/home/ec2-user/Axway-7.7.0'
-    SITGWELB = 'GW-UAT-LB-371846769.us-east-1.elb.amazonaws.com'
-  }
+
+  def loadProperties(path) {
+    properties = new Properties()
+    File propertiesFile = new File(path)
+    properties.load(propertiesFile.newDataInputStream())
+    Set<Object> keys = properties.keySet();
+    for(Object k:keys){
+    String key = (String)k;
+    String value =(String) properties.getProperty(key)
+    env."${key}" = "${value}"
+    }
+}
 }
