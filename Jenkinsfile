@@ -20,11 +20,12 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      
+      steps {
+         script {
          readprops = readProperties file:'props.txt'
          echo """${readprops['version']}"""
-
-      
+         }
+      }
    }
    }
 }
