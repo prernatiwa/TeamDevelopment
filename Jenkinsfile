@@ -1,3 +1,15 @@
+  def loadProperties(path) {
+    properties = new Properties()
+    File propertiesFile = new File(path)
+    properties.load(propertiesFile.newDataInputStream())
+    Set<Object> keys = properties.keySet();
+    for(Object k:keys){
+    String key = (String)k;
+    String value =(String) properties.getProperty(key)
+    env."${key}" = "${value}"
+    }
+}
+
 pipeline {
   agent any
   stages {
@@ -6,12 +18,8 @@ pipeline {
         sh '''echo "Creating Project Package"
 echo "Project Workspace is " ${WORKSPACE}
 path = "${WORKSPACE}/env_dev.properties"
-
-def props = readProperties  file:'${WORKSPACE}/env_dev.properties'
-def Var1= props['ADMINNM']
-def Var2= props['GNAME']
-echo "Var1=${Var1}"
-echo "Var2=${Var2}"
+loadProperties(path)
+ 
 
 echo "variable ADMINNM" $ADMINNM
 echo "variable env.ADMINNM" ${env.ADMINNM}
@@ -32,17 +40,3 @@ echo \'DEPLOYED\''''
   }
 }
 
-  def loadProperties(String path) {
-    properties = new Properties()
-    File propertiesFile = new File(path)
-    properties.load(propertiesFile.newDataInputStream())
-    Set<Object> keys = properties.keySet();
-    for(Object k:keys){
-    String key = (String)k;
-    String value =(String) properties.getProperty(key)
-    env."${key}" = "${value}"
-    }
-}
-def props(String path){
-  echo "path from props " ${path}
-}
