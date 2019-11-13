@@ -39,6 +39,7 @@ pipeline {
     }
      stage('Test') {
       steps {
+        Script{
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'simple_creds', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
             echo "echo step - env: ${env.USERNAME} - password through ${env.PASSWORD}"
             sh 'echo "sh step - echo: ${USERNAME} - ${PASSWORD}"'
@@ -46,6 +47,7 @@ pipeline {
             passwordLocal = env.PASSWORD
             echo "echo step (in block) - vars: ${usernameLocal} - ${passwordLocal}"
           } 
+      }
       }
     }
     
