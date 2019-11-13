@@ -22,9 +22,10 @@ pipeline {
     }
     stage('Build') {
       steps {
+        script {
         sh '''echo "Creating Project Package"
           echo "Project Workspace is " ${WORKSPACE}
-          script {
+          
             echo "${env.ADMINNM}"
             echo "Hello dear" 
          
@@ -35,7 +36,8 @@ pipeline {
           echo \'DEPLOYED\''''
            }
       }
-      }
+    }
+
     
     stage('Test') {
       steps {
@@ -43,5 +45,5 @@ pipeline {
       }
     }
   }
-}
+
 
