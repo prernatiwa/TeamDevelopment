@@ -6,8 +6,10 @@ pipeline {
         sh '''echo "Creating Project Package"
 echo "Project Workspace is " ${WORKSPACE}
 path = "${WORKSPACE}/env_dev.properties"
+script {
 props(path)
 loadProperties(path)
+      }
 echo "variable ADMINNM" $ADMINNM
 echo "variable env.ADMINNM" ${env.ADMINNM}
 
