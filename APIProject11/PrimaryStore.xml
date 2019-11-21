@@ -5415,7 +5415,7 @@
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter" entityPK="6383512856641873369" parentPK="3618355456045109814">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
-	<fval name="body"><value>${kps.User[1].value}</value></fval>
+	<fval name="body"><value>${kps.Member[1].memberValue}</value></fval>
 	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
 	<fval name="logFailure"><value>Failed in setting the message</value></fval>
 	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
@@ -5446,7 +5446,7 @@
 	<fval name="logSuccess"><value>Passed script filter</value></fval>
 	<fval name="name"><value>Scripting Language</value></fval>
 	<fval name="requiredProperties"></fval>
-	<fval name="script"><value>from java.util import HashMap&#xD;&#xA;from com.vordel.kps import Table, ObjectNotFound&#xD;&#xA; &#xD;&#xA;def invoke(msg):&#xD;&#xA; &#xD;&#xA;    record = HashMap()&#xD;&#xA;    record.put(&quot;id&quot;, 1)&#xD;&#xA;    # Repeat next line for each of the properties to update, note that if TTL is non-zero then, all properties must be set&#xD;&#xA;    record.put(&quot;value&quot;, msg.get(&quot;attribute.content.body&quot;))&#xD;&#xA;  &#xD;&#xA;    try:&#xD;&#xA;        record = Table.updateRecord(&quot;User&quot;, record, 0)&#xD;&#xA;        # Note that, the updated record TTL has been reset to value used in the last parameter&#xD;&#xA;  &#x9;return True&#xD;&#xA;    except ObjectNotFound:&#xD;&#xA;        # Handle case when an object with the given primary key does not exists&#xD;&#xA;&#x9;     return False</value></fval>
+	<fval name="script"><value>from java.util import HashMap&#xD;&#xA;from com.vordel.kps import Table, ObjectNotFound&#xD;&#xA; &#xD;&#xA;def invoke(msg):&#xD;&#xA; &#xD;&#xA;    record = HashMap()&#xD;&#xA;    record.put(&quot;memberId&quot;, 1)&#xD;&#xA;    # Repeat next line for each of the properties to update, note that if TTL is non-zero then, all properties must be set&#xD;&#xA;    record.put(&quot;memberValue&quot;, msg.get(&quot;attribute.content.body&quot;))&#xD;&#xA;  &#xD;&#xA;    try:&#xD;&#xA;        record = Table.updateRecord(&quot;User&quot;, record, 0)&#xD;&#xA;        # Note that, the updated record TTL has been reset to value used in the last parameter&#xD;&#xA;  &#x9;return True&#xD;&#xA;    except ObjectNotFound:&#xD;&#xA;        # Handle case when an object with the given primary key does not exists&#xD;&#xA;&#x9;     return False</value></fval>
 	<fval name="successNode"><value contentType="reference">2440320611834868263</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Reflector" entityPK="2440320611834868263" parentPK="3778533677127257055">
@@ -5498,6 +5498,54 @@
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSRoot" entityPK="-6778873683289451197" parentPK="0">
 	<fval name="name"><value>Key Property Stores</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSPackage" entityPK="5837970296456417646" parentPK="-6778873683289451197">
+	<fval name="alias"><value></value></fval>
+	<fval name="dataSource"><value contentType="reference">
+<key type='KPSRoot'><id field='name' value='Key Property Stores'/><key type='KPSPackage'><id field='name' value='sample1'/><key type='KPSDataSourceGroup'><id field='name' value='Data Sources'/><key type='KPSCassandraDataSource'><id field='name' value='Cassandra Storage'/></key></key></key></key>	</value></fval>
+	<fval name="description"><value>sample kps</value></fval>
+	<fval name="internal"><value>0</value></fval>
+	<fval name="name"><value>sample1</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSTypeGroup" entityPK="189681700869542042" parentPK="5837970296456417646">
+	<fval name="name"><value>Type Group</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSType" entityPK="3704674938472936150" parentPK="189681700869542042">
+	<fval name="name"><value>Member</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSTypeProperty" entityPK="1818741995475864035" parentPK="3704674938472936150">
+	<fval name="key"><value></value></fval>
+	<fval name="name"><value>memberValue</value></fval>
+	<fval name="type"><value>java.lang.String</value></fval>
+	<fval name="value"><value></value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSTypeProperty" entityPK="8160752710247228846" parentPK="3704674938472936150">
+	<fval name="key"><value></value></fval>
+	<fval name="name"><value>memberId</value></fval>
+	<fval name="type"><value>java.lang.String</value></fval>
+	<fval name="value"><value></value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSStoreGroup" entityPK="4510609243475829908" parentPK="5837970296456417646">
+	<fval name="name"><value>Store Group</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSReadWriteStore" entityPK="3650799810667781910" parentPK="4510609243475829908">
+	<fval name="aliases"><value>Member</value></fval>
+	<fval name="dataSource"><value contentType="reference">-1</value></fval>
+	<fval name="description"><value>member table</value></fval>
+	<fval name="key"><value>memberId</value></fval>
+	<fval name="name"><value>Member</value></fval>
+	<fval name="readKey"><value></value></fval>
+	<fval name="type"><value contentType="reference">
+<key type='KPSRoot'><id field='name' value='Key Property Stores'/><key type='KPSPackage'><id field='name' value='sample1'/><key type='KPSTypeGroup'><id field='name' value='Type Group'/><key type='KPSType'><id field='name' value='Member'/></key></key></key></key>	</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSDataSourceGroup" entityPK="7826680495170008951" parentPK="5837970296456417646">
+	<fval name="name"><value>Data Sources</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSCassandraDataSource" entityPK="-2210219686921460442" parentPK="7826680495170008951">
+	<fval name="description"><value>Cassandra storage</value></fval>
+	<fval name="name"><value>Cassandra Storage</value></fval>
+	<fval name="readConsistencyLevel"><value>ONE</value></fval>
+	<fval name="writeConsistencyLevel"><value>ONE</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="WebServiceRepository" entityPK="-6272571426882141192" parentPK="0">
 	<fval name="name"><value>Web Service Repository</value></fval>
