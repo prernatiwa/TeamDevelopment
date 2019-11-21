@@ -1162,7 +1162,7 @@
 	<fval name="pathMatching"><value>LONGEST</value></fval>
 	<fval name="payloadMask"><value>0</value></fval>
 	<fval name="trafficMonitoringEnabled"><value>1</value></fval>
-	<fval name="uriprefix"><value>/member/*/</value></fval>
+	<fval name="uriprefix"><value>/member/4b167a31-74de-48dd-bce9-46b24e4094a5</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SoftCircuitReference" entityPK="-6191951242996982253" parentPK="-4825620655775448616">
 	<fval name="circuitPK"><value>system.policy.request</value></fval>
@@ -1201,7 +1201,7 @@
 	<fval name="pathMatching"><value>LONGEST</value></fval>
 	<fval name="payloadMask"><value>0</value></fval>
 	<fval name="trafficMonitoringEnabled"><value>1</value></fval>
-	<fval name="uriprefix"><value>/member</value></fval>
+	<fval name="uriprefix"><value>/member/4b167a31-74de-48dd-bce9-46b24e4094a5</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PortableCircuitReference" entityPK="-9072214303953198085" parentPK="-4403905514048621415">
 	<fval name="circuitPK"><value contentType="reference">-1</value></fval>
