@@ -5522,7 +5522,7 @@
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSTypeProperty" entityPK="8160752710247228846" parentPK="3704674938472936150">
 	<fval name="key"><value></value></fval>
 	<fval name="name"><value>memberId</value></fval>
-	<fval name="type"><value>java.lang.String</value></fval>
+	<fval name="type"><value>java.lang.Integer</value></fval>
 	<fval name="value"><value></value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KPSStoreGroup" entityPK="4510609243475829908" parentPK="5837970296456417646">
