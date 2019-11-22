@@ -5400,7 +5400,20 @@
 	<fval name="description"><value></value></fval>
 	<fval name="logMask"><value>3</value></fval>
 	<fval name="name"><value>getMemberDetails</value></fval>
-	<fval name="start"><value contentType="reference">6383512856641873369</value></fval>
+	<fval name="start"><value contentType="reference">-8838206242459841195</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SetAttributeFilter" entityPK="-8838206242459841195" parentPK="3618355456045109814">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="attributeValue"><value>11</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="logFailure"><value>Failed to set the attribute value</value></fval>
+	<fval name="logFatal"><value>Error while setting the attribute value. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Set the attribute value</value></fval>
+	<fval name="messageAttribute"><value>id1</value></fval>
+	<fval name="name"><value>Set Attribute Filter</value></fval>
+	<fval name="successNode"><value contentType="reference">6383512856641873369</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Reflector" entityPK="-483383139767755618" parentPK="3618355456045109814">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
@@ -5444,7 +5457,7 @@
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ChangeMessageFilter" entityPK="6383512856641873369" parentPK="3618355456045109814">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
-	<fval name="body"><value>${kps.Member[11].memberValue}</value></fval>
+	<fval name="body"><value>${kps.Member[id1].memberValue}</value></fval>
 	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
 	<fval name="logFailure"><value>Failed in setting the message</value></fval>
 	<fval name="logFatal"><value>Error in setting the message. Error: ${circuit.exception}</value></fval>
@@ -5475,7 +5488,7 @@
 	<fval name="logSuccess"><value>Passed script filter</value></fval>
 	<fval name="name"><value>Scripting Language</value></fval>
 	<fval name="requiredProperties"></fval>
-	<fval name="script"><value>from java.util import HashMap&#xD;&#xA;from com.vordel.kps import Table, ObjectNotFound&#xD;&#xA; &#xD;&#xA;def invoke(msg):&#xD;&#xA; &#xD;&#xA;    record = HashMap()&#xD;&#xA;    record.put(&quot;memberId&quot;, 11)&#xD;&#xA;    # Repeat next line for each of the properties to update, note that if TTL is non-zero then, all properties must be set&#xD;&#xA;    record.put(&quot;memberValue&quot;, msg.get(&quot;attribute.content.body&quot;))&#xD;&#xA;  &#xD;&#xA;    try:&#xD;&#xA;        record = Table.updateRecord(&quot;User&quot;, record, 0)&#xD;&#xA;        # Note that, the updated record TTL has been reset to value used in the last parameter&#xD;&#xA;  &#x9;return True&#xD;&#xA;    except ObjectNotFound:&#xD;&#xA;        # Handle case when an object with the given primary key does not exists&#xD;&#xA;&#x9;     return False</value></fval>
+	<fval name="script"><value>from java.util import HashMap&#xD;&#xA;from com.vordel.kps import Table, ObjectNotFound&#xD;&#xA; &#xD;&#xA;def invoke(msg):&#xD;&#xA; &#xD;&#xA;    record = HashMap()&#xD;&#xA;    record.put(&quot;memberId&quot;, 11)&#xD;&#xA;    # Repeat next line for each of the properties to update, note that if TTL is non-zero then, all properties must be set&#xD;&#xA;    record.put(&quot;memberValue&quot;, msg.get(&quot;com.axway.msg.body&quot;))&#xD;&#xA;  &#xD;&#xA;    try:&#xD;&#xA;        record = Table.updateRecord(&quot;User&quot;, record, 0)&#xD;&#xA;        # Note that, the updated record TTL has been reset to value used in the last parameter&#xD;&#xA;  &#x9;return True&#xD;&#xA;    except ObjectNotFound:&#xD;&#xA;        # Handle case when an object with the given primary key does not exists&#xD;&#xA;&#x9;     return False</value></fval>
 	<fval name="successNode"><value contentType="reference">-3684124337601276632</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="TraceFilter" entityPK="-3684124337601276632" parentPK="3778533677127257055">
@@ -5493,6 +5506,22 @@
 	<fval name="traceBody"><value>0</value></fval>
 	<fval name="traceLevel"><value>5</value></fval>
 	<fval name="traceMsg"><value>---------------Prerna Trace from PutMember--------------</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="JavaScriptFilter" entityPK="-1769225706752028185" parentPK="3778533677127257055">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="consumedProperties"></fval>
+	<fval name="engineName"><value>nashorn</value></fval>
+	<fval name="generatedProperties"><value>com.axway.msg.body</value></fval>
+	<fval name="logFailure"><value>Failed script filter</value></fval>
+	<fval name="logFatal"><value>Error while attempt to run script filter. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Passed script filter</value></fval>
+	<fval name="name"><value>ConvertBodyJSONtoString</value></fval>
+	<fval name="requiredProperties"></fval>
+	<fval name="script"><value>// Updated for Nashorn syntax.&#xD;&#xA;&#xD;&#xA;// Reads content.body and makes a string copy of it in ${com.axway.msg.body}&#xD;&#xA;&#xD;&#xA;// Returns false if there are any errors and puts the exception into ${circuit.exception}&#xD;&#xA;&#xD;&#xA; &#xD;&#xA;&#xD;&#xA;var imp = new JavaImporter(java.io);&#xD;&#xA;&#xD;&#xA;with(imp) {&#xD;&#xA;&#xD;&#xA;function invoke(msg) {&#xD;&#xA;&#xD;&#xA;try {&#xD;&#xA;&#xD;&#xA;var bodyAsString;&#xD;&#xA;&#xD;&#xA;var body = msg.get(&quot;content.body&quot;);&#xD;&#xA;&#xD;&#xA;var baos = new ByteArrayOutputStream();&#xD;&#xA;&#xD;&#xA;body.write(baos, 0);&#xD;&#xA;&#xD;&#xA;var ct = body.getContentType();&#xD;&#xA;&#xD;&#xA;var encoding = ct.get(&quot;charset&quot;);&#xD;&#xA;&#xD;&#xA;if (encoding != null) {&#xD;&#xA;&#xD;&#xA;bodyAsString = new java.lang.String(baos.toByteArray(), encoding);&#xD;&#xA;&#xD;&#xA;} else {&#xD;&#xA;&#xD;&#xA;bodyAsString = new java.lang.String(baos.toByteArray());&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;baos.close(); // This is a no-op in current Javas, but could change someday.&#xD;&#xA;&#xD;&#xA;msg.put(&quot;com.axway.msg.body&quot;, bodyAsString);&#xD;&#xA;&#xD;&#xA;return true;&#xD;&#xA;&#xD;&#xA;} catch (e) {&#xD;&#xA;&#xD;&#xA;msg.put(&quot;circuit.exception&quot;, e); // Capture exceptions to whiteboard&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return false; // Follow false path on failure.&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;};</value></fval>
+	<fval name="successNode"><value contentType="reference">-8321738188552501779</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Reflector" entityPK="2440320611834868263" parentPK="3778533677127257055">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
@@ -5516,7 +5545,7 @@
 	<fval name="logSuccess"><value>Success in setting the message</value></fval>
 	<fval name="name"><value>Set Message</value></fval>
 	<fval name="outputContentType"><value>application/json</value></fval>
-	<fval name="successNode"><value contentType="reference">-8321738188552501779</value></fval>
+	<fval name="successNode"><value contentType="reference">-1769225706752028185</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ExtractRESTAttributesFilter" entityPK="6282331235212953654" parentPK="3778533677127257055">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
