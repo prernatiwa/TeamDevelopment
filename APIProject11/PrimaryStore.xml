@@ -5567,26 +5567,9 @@
 	<fval name="logSuccess"><value>Filter passed</value></fval>
 	<fval name="name"><value>Extract REST Request Attributes</value></fval>
 	<fval name="queryAttributePrefix"><value>params.query</value></fval>
-	<fval name="successNode"><value contentType="reference">-5763660968747937602</value></fval>
+	<fval name="successNode"><value contentType="reference">2314535596913436370</value></fval>
 	<fval name="useHeaders"><value>1</value></fval>
 	<fval name="useQueryString"><value>1</value></fval>
-</entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PathParameterFilter" entityPK="-5763660968747937602" parentPK="8000325248598390794">
-	<fval name="abortProcessingOnLogError"><value>0</value></fval>
-	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
-	<fval name="logFailure"><value>Filter failed</value></fval>
-	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
-	<fval name="logMask"><value>2</value></fval>
-	<fval name="logMaskType"><value>SERVICE</value></fval>
-	<fval name="logSuccess"><value>Filter passed</value></fval>
-	<fval name="name"><value>Extract Path Parameters</value></fval>
-	<fval name="successNode"><value contentType="reference">7224380744377485723</value></fval>
-	<fval name="uriTemplate"><value>/product/{memberid}/member</value></fval>
-</entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="OutputPropertyDefinition" entityPK="6459591377254565660" parentPK="-5763660968747937602">
-	<fval name="name"><value>memberid</value></fval>
-	<fval name="selector"><value>memberid</value></fval>
-	<fval name="type"><value>java.lang.String</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="TraceFilter" entityPK="-5456892724614412482" parentPK="8000325248598390794">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
@@ -5620,9 +5603,21 @@
 	<fval name="script"><value>from java.util import HashMap&#xD;&#xA;from com.vordel.kps import Table, ObjectNotFound&#xD;&#xA; &#xD;&#xA;def invoke(msg):&#xD;&#xA; &#xD;&#xA;    record = HashMap()&#xD;&#xA;    # If the primary key is auto-gererated then, the next line should be deleted&#xD;&#xA;    record.put(&quot;membeId&quot;, msg.get(&quot;memberid&quot;))&#xD;&#xA;    # Repeat next line for each of the properties to update, note that if TTL is non-zero then, all properties must be set&#xD;&#xA;    record.put(&quot;memberValue&quot;, msg.get(&quot;com.axway.msg.body&quot;))&#xD;&#xA;  &#xD;&#xA;    try:&#xD;&#xA;        record = Table.createRecord(&quot;Member&quot;, record, 60)&#xD;&#xA;        # Note that, the updated record TTL has been reset to value used in the last parameter&#xD;&#xA;  &#x9;return True&#xD;&#xA;    except ObjectNotFound:&#xD;&#xA;        # Handle case when an object with the given primary key does not exists&#xD;&#xA;&#x9;     return False</value></fval>
 	<fval name="successNode"><value contentType="reference">-5456892724614412482</value></fval>
 </entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SetAttributeFilter" entityPK="-4143917371166970259" parentPK="8000325248598390794">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="attributeValue"><value>http.path[2]</value></fval>
+	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
+	<fval name="logFailure"><value>Failed to set the attribute value</value></fval>
+	<fval name="logFatal"><value>Error while setting the attribute value. Error: ${circuit.exception}</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Set the attribute value</value></fval>
+	<fval name="messageAttribute"><value>memberid</value></fval>
+	<fval name="name"><value>Setmemberid</value></fval>
+</entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SetAttributeFilter" entityPK="2314535596913436370" parentPK="8000325248598390794">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
-	<fval name="attributeValue"><value></value></fval>
+	<fval name="attributeValue"><value>http.path[2]</value></fval>
 	<fval name="category"><value contentType="reference">7070581661467742640</value></fval>
 	<fval name="logFailure"><value>Failed to set the attribute value</value></fval>
 	<fval name="logFatal"><value>Error while setting the attribute value. Error: ${circuit.exception}</value></fval>
@@ -5631,6 +5626,7 @@
 	<fval name="logSuccess"><value>Set the attribute value</value></fval>
 	<fval name="messageAttribute"><value>memberid</value></fval>
 	<fval name="name"><value>Set memberid</value></fval>
+	<fval name="successNode"><value contentType="reference">7224380744377485723</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Reflector" entityPK="4883770124810249389" parentPK="8000325248598390794">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
