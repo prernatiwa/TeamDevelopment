@@ -5400,7 +5400,7 @@
 	<fval name="description"><value></value></fval>
 	<fval name="logMask"><value>3</value></fval>
 	<fval name="name"><value>getMemberDetails</value></fval>
-	<fval name="start"><value contentType="reference">-8838206242459841195</value></fval>
+	<fval name="start"><value contentType="reference">7910707326386414566</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SetAttributeFilter" entityPK="-8838206242459841195" parentPK="3618355456045109814">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
@@ -5413,7 +5413,7 @@
 	<fval name="logSuccess"><value>Set the attribute value</value></fval>
 	<fval name="messageAttribute"><value>id1</value></fval>
 	<fval name="name"><value>Set Attribute Filter</value></fval>
-	<fval name="successNode"><value contentType="reference">-2307694370578649622</value></fval>
+	<fval name="successNode"><value contentType="reference">6383512856641873369</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CompareAttributeFilter" entityPK="-2307694370578649622" parentPK="3618355456045109814">
 	<fval name="abortProcessingOnLogError"><value>0</value></fval>
@@ -5485,6 +5485,21 @@
 	<fval name="name"><value>Set Message</value></fval>
 	<fval name="outputContentType"><value>application/json</value></fval>
 	<fval name="successNode"><value contentType="reference">3979143171467406819</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ExtractRESTAttributesFilter" entityPK="7910707326386414566" parentPK="3618355456045109814">
+	<fval name="abortProcessingOnLogError"><value>0</value></fval>
+	<fval name="category"><value contentType="reference">-3097056587243971110</value></fval>
+	<fval name="decode"><value>1</value></fval>
+	<fval name="logFailure"><value>Filter failed</value></fval>
+	<fval name="logFatal"><value>Filter aborted due to exception</value></fval>
+	<fval name="logMask"><value>2</value></fval>
+	<fval name="logMaskType"><value>SERVICE</value></fval>
+	<fval name="logSuccess"><value>Filter passed</value></fval>
+	<fval name="name"><value>Extract REST Request Attributes</value></fval>
+	<fval name="queryAttributePrefix"><value>params.query</value></fval>
+	<fval name="successNode"><value contentType="reference">-8838206242459841195</value></fval>
+	<fval name="useHeaders"><value>1</value></fval>
+	<fval name="useQueryString"><value>1</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FilterCircuit" entityPK="3778533677127257055" parentPK="-7930089209800206329">
 	<fval name="category"><value contentType="reference">-7509447965632017883</value></fval>
@@ -5714,7 +5729,7 @@
 	<fval name="name"><value>ConvertBodyJSONtoString</value></fval>
 	<fval name="requiredProperties"></fval>
 	<fval name="script"><value>// Updated for Nashorn syntax.&#xD;&#xA;&#xD;&#xA;// Reads content.body and makes a string copy of it in ${com.axway.msg.body}&#xD;&#xA;&#xD;&#xA;// Returns false if there are any errors and puts the exception into ${circuit.exception}&#xD;&#xA;&#xD;&#xA; &#xD;&#xA;&#xD;&#xA;var imp = new JavaImporter(java.io);&#xD;&#xA;&#xD;&#xA;with(imp) {&#xD;&#xA;&#xD;&#xA;function invoke(msg) {&#xD;&#xA;&#xD;&#xA;try {&#xD;&#xA;&#xD;&#xA;var bodyAsString;&#xD;&#xA;&#xD;&#xA;var body = msg.get(&quot;content.body&quot;);&#xD;&#xA;&#xD;&#xA;var baos = new ByteArrayOutputStream();&#xD;&#xA;&#xD;&#xA;body.write(baos, 0);&#xD;&#xA;&#xD;&#xA;var ct = body.getContentType();&#xD;&#xA;&#xD;&#xA;var encoding = ct.get(&quot;charset&quot;);&#xD;&#xA;&#xD;&#xA;if (encoding != null) {&#xD;&#xA;&#xD;&#xA;bodyAsString = new java.lang.String(baos.toByteArray(), encoding);&#xD;&#xA;&#xD;&#xA;} else {&#xD;&#xA;&#xD;&#xA;bodyAsString = new java.lang.String(baos.toByteArray());&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;baos.close(); // This is a no-op in current Javas, but could change someday.&#xD;&#xA;&#xD;&#xA;msg.put(&quot;com.axway.msg.body&quot;, bodyAsString);&#xD;&#xA;&#xD;&#xA;return true;&#xD;&#xA;&#xD;&#xA;} catch (e) {&#xD;&#xA;&#xD;&#xA;msg.put(&quot;circuit.exception&quot;, e); // Capture exceptions to whiteboard&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return false; // Follow false path on failure.&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;};</value></fval>
-	<fval name="successNode"><value contentType="reference">2151749591541448447</value></fval>
+	<fval name="successNode"><value contentType="reference">-5308599249635168398</value></fval>
 </entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="EncryptionRecipients" entityPK="-6976197781656378320" parentPK="0">
 	<fval name="name"><value>Encryption Recipients</value></fval>
