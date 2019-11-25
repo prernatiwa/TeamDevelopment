@@ -1149,32 +1149,6 @@
 	<fval name="corsProfile"><value contentType="reference">-1</value></fval>
 	<fval name="name"><value>Default Services</value></fval>
 </entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="InetInterface" entityPK="3970459595715210994" parentPK="-7425121177199243153">
-	<fval name="activetimeout"><value>60000</value></fval>
-	<fval name="address"><value>*</value></fval>
-	<fval name="auditConn"><value>false</value></fval>
-	<fval name="backlog"><value>64</value></fval>
-	<fval name="enabled"><value>1</value></fval>
-	<fval name="exportCorrelationId"><value>1</value></fval>
-	<fval name="idletimeout"><value>60000</value></fval>
-	<fval name="inputEncodings"><value>.inherit</value></fval>
-	<fval name="maxRequestMemory"><value>27262976</value></fval>
-	<fval name="name"><value>Traffic HTTP Interface2</value></fval>
-	<fval name="opsSettingsUsage"><value>SYSTEM</value></fval>
-	<fval name="outputEncodings"><value>.inherit</value></fval>
-	<fval name="port"><value>${env.PORT.TRAFFIC}</value></fval>
-	<fval name="protocol"><value>ipv4</value></fval>
-	<fval name="recordCircuitPath"><value>1</value></fval>
-	<fval name="recordInboundTxns"><value>1</value></fval>
-	<fval name="recordOutboundTxns"><value>1</value></fval>
-	<fval name="recordReceived"><value>1</value></fval>
-	<fval name="recordSent"><value>1</value></fval>
-	<fval name="recordTrace"><value>1</value></fval>
-	<fval name="reuseAddress"><value>false</value></fval>
-	<fval name="tracelevel"><value>INHERIT</value></fval>
-	<fval name="transparentProxy"><value>0</value></fval>
-	<fval name="wafProfile"><value contentType="reference">-1</value></fval>
-</entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="XMLFirewall" entityPK="6665853682167200154" parentPK="-7425121177199243153">
 	<fval name="corsProfile"><value contentType="reference">-1</value></fval>
 	<fval name="corsUsage"><value>HTTP</value></fval>
