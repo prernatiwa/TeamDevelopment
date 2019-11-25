@@ -1194,8 +1194,7 @@
 	<fval name="enableAccessLogging"><value>0</value></fval>
 	<fval name="enabled"><value>1</value></fval>
 	<fval name="evaluate"><value>1</value></fval>
-	<fval name="filterCircuit"><value contentType="reference">
-<key type='CircuitContainer'><id field='name' value='growSuper'/><key type='FilterCircuit'><id field='name' value='putMemberDetails'/></key></key>	</value></fval>
+	<fval name="filterCircuit"><value contentType="reference">-1</value></fval>
 	<fval name="httpMethod"><value>PUT</value></fval>
 	<fval name="logMask"><value>2</value></fval>
 	<fval name="pathMatching"><value>LONGEST</value></fval>
@@ -1304,31 +1303,5 @@
 	<fval name="evaluate"><value>0</value></fval>
 	<fval name="name"><value>GLOBAL_POLICY_RSP</value></fval>
 	<fval name="priority"><value>4</value></fval>
-</entity>
-<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="InetInterface" entityPK="6389403673281358693" parentPK="3682295831391073265">
-	<fval name="activetimeout"><value>60000</value></fval>
-	<fval name="address"><value>*</value></fval>
-	<fval name="auditConn"><value>false</value></fval>
-	<fval name="backlog"><value>64</value></fval>
-	<fval name="enabled"><value>1</value></fval>
-	<fval name="exportCorrelationId"><value>1</value></fval>
-	<fval name="idletimeout"><value>60000</value></fval>
-	<fval name="inputEncodings"><value>.inherit</value></fval>
-	<fval name="maxRequestMemory"><value>27262976</value></fval>
-	<fval name="name"><value>Traffic HTTP Interface1</value></fval>
-	<fval name="opsSettingsUsage"><value>SYSTEM</value></fval>
-	<fval name="outputEncodings"><value>.inherit</value></fval>
-	<fval name="port"><value>${env.PORT.TRAFFIC}</value></fval>
-	<fval name="protocol"><value>ipv4</value></fval>
-	<fval name="recordCircuitPath"><value>1</value></fval>
-	<fval name="recordInboundTxns"><value>1</value></fval>
-	<fval name="recordOutboundTxns"><value>1</value></fval>
-	<fval name="recordReceived"><value>1</value></fval>
-	<fval name="recordSent"><value>1</value></fval>
-	<fval name="recordTrace"><value>1</value></fval>
-	<fval name="reuseAddress"><value>false</value></fval>
-	<fval name="tracelevel"><value>INHERIT</value></fval>
-	<fval name="transparentProxy"><value>0</value></fval>
-	<fval name="wafProfile"><value contentType="reference">-1</value></fval>
 </entity>
 </entityStoreData>
