@@ -23935,6 +23935,14 @@
 	<fval name="name"><value>Event Log Configuration</value></fval>
 	<fval name="writeSystemEventFreqSecs"><value>60</value></fval>
 </entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CustomMessageAttribute" entityPK="-874590976254834878" parentPK="5068575808154982010">
+	<fval name="enabled"><value>1</value></fval>
+	<fval name="name"><value>memberid</value></fval>
+</entity>
+<entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CustomMessageAttribute" entityPK="7105991216803500686" parentPK="5068575808154982010">
+	<fval name="enabled"><value>1</value></fval>
+	<fval name="name"><value>id1</value></fval>
+</entity>
 <entity xmlns="http://www.vordel.com/2005/06/24/entityStore"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="TivoliActionGroupGroup" entityPK="5149651166377797494" parentPK="0">
 	<fval name="name"><value>Tivoli Action Groups</value></fval>
 </entity>
